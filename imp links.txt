@@ -1,0 +1,8 @@
+https://medium.com/cashify-engineering/improve-accuracy-of-ocr-using-image-preprocessing-8df29ec3a033
+https://scikit-image.org/docs/dev/auto_examples/features_detection/plot_template.html
+https://www.analyticsvidhya.com/blog/2020/05/build-your-own-ocr-google-tesseract-opencv/
+https://github.com/tesseract-ocr/tesstrain
+https://medium.com/better-programming/an-introduction-to-pyttsx3-a-text-to-speech-converter-for-python-4a7e1ce825c3
+https://towardsdatascience.com/symspellcompound-10ec8f467c9b
+https://symspellpy.readthedocs.io/en/latest/users/installing.html
+https://www.kaggle.com/yk1598/symspell-spell-corrector
