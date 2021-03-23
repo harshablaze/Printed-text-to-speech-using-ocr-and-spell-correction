@@ -5,6 +5,9 @@ speaker = win32com.client.Dispatch("SAPI.SpVoice")
 inFile=open('text.txt', "r")
 text=inFile.read()
 
+#remove new line tags
+text = text.replace('\n',' ')
+
 #speak out the text read
 speaker.Speak(text)
 #print(text)

@@ -253,13 +253,14 @@ if __name__ == '__main__':
     #words = [word.strip() for word in words]
     words=''
     with open('text.txt', 'r') as file:
-        words = file.read().replace('\n', '')
+        words = file.read().replace('\n', ' ')
     print('text read by symspell'+ words)
     #tokens = spacy_tokenize(sample_text)
+    words = words.lower()
     tokens = spacy_tokenize(words)
     print('run spell checker...')
     print()
-    print('original text: ' + sample_text)
+    print('original text: ' + words)
     print()
     correct_text = spell_corrector(tokens, words_dict)
     print('corrected text: ' + correct_text)

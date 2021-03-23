@@ -5,7 +5,7 @@ import pytesseract
 import cv2
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe'
-im = Image.open('test1.jpg')
+im = Image.open('sample4.jpg')
 #C:\sample2.jpg
 
 # Example config: r'--tessdata-dir "C:\Program Files (x86)\Tesseract-OCR\tessdata"'
@@ -16,8 +16,12 @@ text = pytesseract.image_to_string(im, lang='eng', config=tessdata_dir_config)
 #text = pytesseract.image_to_string(im, lang = 'eng')
 
 print(text)
-
-
+#remove unwanted chars recognised by ocr
+text = text.replace('\n',' ')
+text = text.replace(':','   ')
+text = text.replace(',',' ')
+text = text.replace('.','  ')
+print(text)
 #print text data to txt Files
 outFileName="text.txt"
 outFile=open('text.txt', "w")
