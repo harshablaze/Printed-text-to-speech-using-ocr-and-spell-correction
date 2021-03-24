@@ -264,5 +264,9 @@ if __name__ == '__main__':
     print()
     correct_text = spell_corrector(tokens, words_dict)
     print('corrected text: ' + correct_text)
+    outFile=open('text.txt', "w")
+    outFile.write(correct_text)
+    outFile.close()
+
 
     print('Done.')
