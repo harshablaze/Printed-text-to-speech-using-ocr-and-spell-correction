@@ -21,16 +21,19 @@ thresh2 = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
 
 ret,thresh3 = cv2.threshold(img,127,255,cv2.THRESH_BINARY_INV)
 
+ret,thresh4 = cv2.threshold(thresh1,127,255,cv2.THRESH_BINARY)
 # the window showing output images
 # with the corresponding thresholding
 # techniques applied to the input image
 cv2.imshow('Adaptive Mean', thresh1)
 cv2.imshow('Adaptive Gaussian', thresh2)
 cv2.imshow('binary inv', thresh3)
+cv2.imshow('binary', thresh4)
 
 cv2.imwrite("test2-1.jpg", thresh1)
 cv2.imwrite("test2-2.jpg", thresh2)
 cv2.imwrite("test2-3.jpg", thresh3)
+cv2.imwrite("test2-4.jpg", thresh4)
 
 #thresholding completed
 

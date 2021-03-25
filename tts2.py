@@ -2,7 +2,7 @@
 import pyttsx3
 
 # initialisation
-engine = pyttsx3.init('sapi5')
+engine = pyttsx3.init()
 inFile=open('text.txt', "r")
 text=inFile.read()
 
