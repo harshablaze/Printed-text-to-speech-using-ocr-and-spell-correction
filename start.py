@@ -10,4 +10,4 @@ os.system('python ocr.py')
 os.system('python sym1.py')
 
 #run tts
-os.system('python tts.py')
+os.system('python tts4.py')
