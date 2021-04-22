@@ -8,7 +8,7 @@ import cv2
 pytesseract.pytesseract.tesseract_cmd = r'.\Tesseract-OCR\tesseract.exe'
 #use above path when tesseract is moved to current project directory
 im = Image.open('images/test2-3.jpg')
-#im = cv2.imread('images/sample4.jpg')
+#im = Image.open('images/sample12.jpg')
 #sample4.jpg   test2-3.jpg
 
 # Example config: r'--tessdata-dir "C:\Program Files (x86)\Tesseract-OCR\tessdata"'
