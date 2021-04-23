@@ -3,8 +3,8 @@ import numpy as np
 
 # path to input image is specified and
 # image is loaded with imread command
-image1 = cv2.imread('images/sample4.jpg')
-
+image1 = cv2.imread('images/sample111.jpg')
+#initial sample4
 # cv2.cvtColor is applied over the
 # image input with applied parameters
 # to convert the image in grayscale
