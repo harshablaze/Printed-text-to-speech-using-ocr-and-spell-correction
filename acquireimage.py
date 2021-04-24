@@ -20,7 +20,8 @@ while True:
         img_name = "sample_0.jpg"
         cv2.imwrite(img_name, frame)
         print("image saved successfully")
-        break 
+        break
 cam.release()
 
 cv2.destroyAllWindows()
+ 

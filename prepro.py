@@ -18,7 +18,7 @@ thresh1 = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_MEAN_C,
 thresh2 = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
 										cv2.THRESH_BINARY, 199, 5)
 
-
+ 
 ret,thresh3 = cv2.threshold(img,127,255,cv2.THRESH_BINARY_INV)
 
 ret,thresh4 = cv2.threshold(thresh1,127,255,cv2.THRESH_BINARY)
