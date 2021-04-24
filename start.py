@@ -7,6 +7,8 @@ os.system('python acquireimage.py')
 print("image acquired")
 
 print("preprocessing image...")
+
+os.system('python roi.py')
 #run preprocessor
 os.system('python prepro.py')
 
