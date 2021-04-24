@@ -24,7 +24,7 @@ for c in cnts:
         cv2.rectangle(image, (x, y), (x + w, y + h), (36,255,12), 3)
         #use blow code to write roi when results are good
         #ROI = image[y:y+h, x:x+w]
-        #cv2.imwrite('ROI_{}.png'.format(ROI_number), ROI)
+        #cv2.imwrite('ROI_{}.jpg'.format(ROI_number), ROI)
         #ROI_number += 1
 
 cv2.imshow('thresh', thresh)
