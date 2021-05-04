@@ -1,0 +1,9 @@
+1.special feature
+2.automatically delete images acquired at end of tts
+3.delete rois at end of tts #free up space
+4.save audio files in a folder and accending order 
+
+extension if time permits:
+if we take 2 images of same page like upper part and
+lower part if a string repeats then concatinate the 2nd
+image text to 1st image.
