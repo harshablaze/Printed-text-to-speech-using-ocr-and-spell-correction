@@ -3,7 +3,7 @@ engine = pyttsx3.init() # object creation
 
 """RATE"""
 rate = engine.getProperty('rate')   # getting details of current speaking rate
-print (rate)                        #printing current voice rate
+print ('speech rate:'+str(rate)+' words/min')                        #printing current voice rate
 engine.setProperty('rate', 155)     # setting up new voice rate initial val 125
 
 
@@ -33,5 +33,6 @@ engine.stop()
 
 """Saving Voice to a file"""
 # On linux make sure that 'espeak' and 'ffmpeg' are installed
-engine.save_to_file('Hello World', 'test.mp3')
+engine.save_to_file(text, 'test.mp3')
+print("audio file saved successfully")
 engine.runAndWait()

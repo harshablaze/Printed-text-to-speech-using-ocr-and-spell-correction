@@ -3,24 +3,30 @@ import pytesseract
 import re
 #not needed
 import cv2
-
+import os
 #pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe'
 pytesseract.pytesseract.tesseract_cmd = r'.\Tesseract-OCR\tesseract.exe'
 #use above path when tesseract is moved to current project directory
-im = Image.open('images/test2-3.jpg')
-#im = Image.open('images/sample4.jpg')
-#sample4.jpg   test2-3.jpg
 
 # Example config: r'--tessdata-dir "C:\Program Files (x86)\Tesseract-OCR\tessdata"'
 # It's important to add double quotes around the dir path.
-
 #tessdata_dir_config = r'--tessdata-dir "C:\\Program Files (x86)\\Tesseract-OCR\\tessdata"'
 tessdata_dir_config = r'--tessdata-dir ".\Tesseract-OCR\tessdata"'
 #use above path when tesseract is moved to current project directory
+text=''
+list = os.listdir('./prepro/') # dir is your directory path
+number_of_files = len(list)
+print('No of images detected: '+ str(number_of_files))
+file_number = 0
+for i in range(0,number_of_files):
+    im = Image.open('prepro/test_{}.jpg'.format(file_number))
+    #im = Image.open('images/sample4.jpg')
+    #sample4.jpg   test2-3.jpg
 
-text = pytesseract.image_to_string(im, lang='eng', config=tessdata_dir_config)
+    text += pytesseract.image_to_string(im, lang='eng', config=tessdata_dir_config)
 
-#text = pytesseract.image_to_string(im, lang = 'eng')
+    #text = pytesseract.image_to_string(im, lang = 'eng')
+    file_number += 1
 
 print(text)
 #remove unwanted chars recognised by ocr

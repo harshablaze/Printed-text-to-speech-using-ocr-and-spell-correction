@@ -1,4 +1,4 @@
-
+#special feature pending
 import re, random
 import spacy
 nlp = spacy.load('en_core_web_sm')
@@ -254,7 +254,7 @@ if __name__ == '__main__':
     words=''
     with open('text.txt', 'r') as file:
         words = file.read().replace('\n', ' ')
-    print('text read by symspell'+ words)
+    print('text read by symspell: '+ words)
     #tokens = spacy_tokenize(sample_text)
     words = words.lower()
     tokens = spacy_tokenize(words)
