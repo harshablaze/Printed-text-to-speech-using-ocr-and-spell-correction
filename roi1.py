@@ -1,12 +1,14 @@
 '''
 this is copy of roi.py
-
-this program is an attempt to rectify contour large to small auto sort error
-required top to bottom order
-remark: module pending at compressing the image
+objective:
+1)compress large images to less than 1000x1000
+2)identify region of interests
+3)save rois in top to bottom order
+remark: solved and completed
 '''
 import cv2
 import os
+
 def get_contour_precedence(contour, cols):
     tolerance_factor = 10
     origin = cv2.boundingRect(contour)
@@ -14,6 +16,17 @@ def get_contour_precedence(contour, cols):
 
 # Load image, grayscale, Gaussian blur, adaptive threshold
 image = cv2.imread('./images/sample_0.jpg')
+
+#compress the image if image size is >than 1000x1000
+height, width, color = image.shape #unpacking tuple (height, width, colour) returned by image.shape
+while(width > 1000):
+    height = height/2
+    width = width/2
+print(int(height), int(width))
+height = int(height)
+width = int(width)
+image = cv2.resize(image, (width, height))
+
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 blur = cv2.GaussianBlur(gray, (9,9), 0)
 thresh = cv2.adaptiveThreshold(gray,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV,11,30)

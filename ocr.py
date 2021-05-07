@@ -20,25 +20,30 @@ print('No of images detected: '+ str(number_of_files))
 file_number = 0
 for i in range(0,number_of_files):
     im = Image.open('prepro/test_{}.jpg'.format(file_number))
-    #im = Image.open('images/sample4.jpg')
+    im1 = Image.open('roi/Roi_{}.jpg'.format(file_number))
     #sample4.jpg   test2-3.jpg
-
-    text += pytesseract.image_to_string(im, lang='eng', config=tessdata_dir_config)
+    text_im = pytesseract.image_to_string(im, lang='eng', config=tessdata_dir_config)
+    text_im1 = pytesseract.image_to_string(im1, lang='eng', config=tessdata_dir_config)
+    if len(text_im) > len(text_im1):
+        text += text_im
+    else:
+        text += text_im1
 
     #text = pytesseract.image_to_string(im, lang = 'eng')
+    text += '.'
     file_number += 1
 
 print(text)
 #remove unwanted chars recognised by ocr
 text = text.replace('\n',' ')
-text = text.replace(':','   ')
-text = text.replace(',',' ')
-text = text.replace('.','  ')
+#text = text.replace(':','   ')
+#text = text.replace(',',' ')
+
 text = text.replace('_',' ')
 
 #to remove extra spaces
 text=re.sub('\s+',' ',text)
-
+text = text.replace('/','   ')
 #to remove chars not in [A-Z] [a-z] [0-9] and , . @ $ % & ! # () = + ? / <> {}
 
 

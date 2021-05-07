@@ -6,6 +6,7 @@ remark: module solved and completed
 import cv2
 import numpy as np
 import os
+#from PIL import Image, ImageEnhance #for contrast only remove if not used
 # path to input image is specified and
 # image is loaded with imread command
 #image1 = cv2.imread('images/sample111.jpg')
@@ -15,7 +16,6 @@ dir = './prepro/'
 for f in os.listdir(dir):
     os.remove(os.path.join(dir, f))
 
-
 #count rois in roi folder
 list = os.listdir('./roi/') # dir is your directory path
 number_of_files = len(list)
@@ -23,8 +23,14 @@ print('No of ROIs detected: '+ str(number_of_files))
 
 ROI_number = 0
 for i in range(0,number_of_files):
+	#image1 = cv2.imread('./roi/ROI_{}.jpg'.format(ROI_number))
+	#contrast enhancing roi image
+	'''
+	image1 = Image.open('./roi/ROI_{}.jpg'.format(ROI_number))
+	contrast = ImageEnhance.Contrast(image1)
+	contrast.enhance(1.1).save('./roi/ROI_{}.jpg'.format(ROI_number))
+	'''
 	image1 = cv2.imread('./roi/ROI_{}.jpg'.format(ROI_number))
-
 	#image1 = cv2.imread('roi/ROI_0.jpg')
 	#initial sample4
 	# cv2.cvtColor is applied over the
