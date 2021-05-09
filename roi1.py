@@ -1,11 +1,7 @@
-'''
-this is copy of roi.py
-objective:
-1)compress large images to less than 1000x1000
-2)identify region of interests
-3)save rois in top to bottom order
-remark: solved and completed
-'''
+#objective:
+#1)compress large images to less than 1000x1000
+#2)identify region of interests
+#3)save rois in top to bottom order
 import cv2
 import os
 
@@ -41,7 +37,7 @@ cnts = cv2.findContours(dilate, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
 cnts = cnts[0] if len(cnts) == 2 else cnts[1]
 
-#ORDER CONTOURS
+#ORDER CONTOURS top to bottom
 cnts.sort(key=lambda x:get_contour_precedence(x, image.shape[1]))
 
 #delete previous roi images in folder roi to avoid

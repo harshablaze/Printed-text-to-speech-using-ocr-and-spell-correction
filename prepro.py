@@ -1,8 +1,3 @@
-'''
-attempting prepro for multiple rois and preprocess multiple rois
-remark: module solved and completed
-
-'''
 import cv2
 import numpy as np
 import os
