@@ -1,4 +1,4 @@
-#after installing the project repo
+#After downloading the project
 #activate the env
 .\env\Scripts\activate
 
@@ -6,8 +6,5 @@
 #install requirements.txt
 pip install -r requirements.txt
 
-#to save the packages used
-pip freeze>requirements.txt
-
-#to start the project
+#To start the project
 python start.py
