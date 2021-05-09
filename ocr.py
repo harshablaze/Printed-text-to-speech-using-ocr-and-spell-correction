@@ -17,22 +17,29 @@ text=''
 list = os.listdir('./prepro/') # dir is your directory path
 number_of_files = len(list)
 print('No of images detected: '+ str(number_of_files))
+
+im2 = Image.open('images/sample_0.jpg')
+text_im3 = pytesseract.image_to_string(im2, lang='eng', config=tessdata_dir_config)
 file_number = 0
 for i in range(0,number_of_files):
     im = Image.open('prepro/test_{}.jpg'.format(file_number))
     im1 = Image.open('roi/Roi_{}.jpg'.format(file_number))
     #sample4.jpg   test2-3.jpg
-    text_im = pytesseract.image_to_string(im, lang='eng', config=tessdata_dir_config)
-    text_im1 = pytesseract.image_to_string(im1, lang='eng', config=tessdata_dir_config)
-    if len(text_im) > len(text_im1):
-        text += text_im
-    else:
+    text_im1 = pytesseract.image_to_string(im, lang='eng', config=tessdata_dir_config)
+    text_im2 = pytesseract.image_to_string(im1, lang='eng', config=tessdata_dir_config)
+    if len(text_im1)>= len(text_im2):
         text += text_im1
+    else:
+        text += text_im2
 
     #text = pytesseract.image_to_string(im, lang = 'eng')
     text += '.'
     file_number += 1
-
+text = text.replace('\n',' ')
+text_im3 =text_im3.replace('\n',' ')
+if (len(text_im3)) > len(text):
+    text = text_im3
+print(text_im3)
 print(text)
 #remove unwanted chars recognised by ocr
 text = text.replace('\n',' ')
@@ -40,13 +47,12 @@ text = text.replace('\n',' ')
 #text = text.replace(',',' ')
 
 text = text.replace('_',' ')
-
+text = text.replace("'",'')
+text = text.replace('‘','')
 #to remove extra spaces
 text=re.sub('\s+',' ',text)
 text = text.replace('/','   ')
 #to remove chars not in [A-Z] [a-z] [0-9] and , . @ $ % & ! # () = + ? / <> {}
-
-
 
 print(text)
 #print text data to txt Files

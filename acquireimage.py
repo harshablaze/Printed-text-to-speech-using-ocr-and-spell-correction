@@ -15,7 +15,7 @@ while True:
         # ESC pressed
         print("Escape hit, closing...")
         #save default image when image is not acquired
-        image = cv2.imread('./images/sample2.jpg')
+        image = cv2.imread('./images/sample11.jpg')
         #img_name = "./images/sample_0.jpg"
         cv2.imwrite('./images/sample_0.jpg', image)
         break

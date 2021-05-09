@@ -1,5 +1,5 @@
 **NOTE:** I developed this project on Windows 10 X64bit OS and Python 3.9.2 X64bit version python Environment<br>
-      this may not work on linux os because the path indication and tesseract.exe path used in src code file runs on windows
+      if you want to run this project on linux change the paths and tesseract path in ocr.py
 ***
 ## **Setting up the project**
 
