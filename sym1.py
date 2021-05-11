@@ -199,6 +199,9 @@ def spell_corrector(word_list, words_d) -> str:
             suggestion = ss.best_word(word, silent=True)
             if suggestion is not None:
                 result_list.append(suggestion)
+            #added this to original to avoid deletion of word when dictionary lookup is not found under edit distance 2
+            else:
+                result_list.append(word)
         else:
             result_list.append(word)
 
