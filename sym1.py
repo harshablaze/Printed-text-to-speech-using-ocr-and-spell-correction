@@ -220,6 +220,11 @@ if __name__ == '__main__':
     with open('./input/479k-english-words/dictionary1.txt') as f:
         words = f.readlines()
     eng_words = [word.strip() for word in words]
+        
+    #custom dataset block
+    with open('./input/479k-english-words/customdictionary.txt') as f:
+        words = f.readlines()
+    eng_words += [word.strip() for word in words]
 
     # Print some examples
     print(eng_words[:5])
