@@ -234,8 +234,8 @@ if __name__ == '__main__':
         # sampling from list for kernel runtime
         sample_idxs = random.sample(range(len(eng_words)), 100)
         eng_words = [eng_words[i] for i in sorted(sample_idxs)] + \
-            sample_text.split() # make sure our sample misspell is in there
-
+            sample_idxs.split() # make sure our sample misspell is in there
+    #attempt to change sample_text to sample _idxs
     #all_words_list = list(set(bad_words + eng_words))
     all_words_list = list(set(eng_words))
     silence = ss.create_dictionary_from_arr(all_words_list, token_pattern=r'.+')
