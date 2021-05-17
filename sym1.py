@@ -192,9 +192,16 @@ class SymSpell:
         except:
             return None
 
-def spell_corrector(word_list, words_d) -> str:
+def spell_corrector(word_list, words_d, native) -> str:
     result_list = []
     for word in word_list:
+        
+        #start of special block
+        if word in native:
+            result_list.append(word)
+            continue
+        #end of special block
+
         if word not in words_d:
             suggestion = ss.best_word(word, silent=True)
             if suggestion is not None:
@@ -224,10 +231,20 @@ if __name__ == '__main__':
     #custom dataset block
     with open('./input/479k-english-words/customdictionary.txt') as f:
         words = f.readlines()
-    eng_words += [word.strip() for word in words]
-
+    native = [word.strip() for word in words]
+    with open('./input/479k-english-words/indian_names.txt') as f:
+        words = f.readlines()
+    native += [word.strip() for word in words]
+    with open('./input/479k-english-words/indian_cities.txt') as f:
+        words = f.readlines()
+    native += [word.strip() for word in words]
+    with open('./input/479k-english-words/indian_states.txt') as f:
+        words = f.readlines()
+    native += [word.strip() for word in words]
+    f.close()
     # Print some examples
     print(eng_words[:5])
+    print(native[:5])
     #print(bad_words[:5])
 
     print('Total english words: {}'.format(len(eng_words)))
@@ -266,11 +283,13 @@ if __name__ == '__main__':
     #tokens = spacy_tokenize(sample_text)
     words = words.lower()
     tokens = spacy_tokenize(words)
+    #tokens is of type list
     print('run spell checker...')
     print()
     print('original text: ' + words)
     print()
-    correct_text = spell_corrector(tokens, words_dict)
+    #added native attb to spell_corrector
+    correct_text = spell_corrector(tokens, words_dict, native)
     print('corrected text: ' + correct_text)
     outFile=open('corrected_text.txt', "w")
     outFile.write(correct_text)
