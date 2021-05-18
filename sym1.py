@@ -1,4 +1,3 @@
-#special feature pending
 import re, random
 import spacy
 nlp = spacy.load('en_core_web_sm')
@@ -239,6 +238,9 @@ if __name__ == '__main__':
         words = f.readlines()
     native += [word.strip() for word in words]
     with open('./input/479k-english-words/indian_states.txt') as f:
+        words = f.readlines()
+    native += [word.strip() for word in words]
+    with open('./input/479k-english-words/english_names.txt') as f:
         words = f.readlines()
     native += [word.strip() for word in words]
     f.close()

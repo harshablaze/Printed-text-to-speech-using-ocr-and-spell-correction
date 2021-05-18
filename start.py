@@ -34,8 +34,7 @@ words=words.replace(' ','')
 if len(words) == 0 :
     print('no text detected \n exiting..')
 else :
-    #run numbers to words
-    #os.system('python numtoword.py')
+    os.system('python names.py')
     os.system('python nameidentifier.py')
 
     print("running spell correction...")
