@@ -26,6 +26,6 @@ for word in mylist:
         continue
     else:
         inFile.write('\n')
-        inFile.write(word)
+        inFile.write(str(word).lower())
 inFile.close()
 f.close()

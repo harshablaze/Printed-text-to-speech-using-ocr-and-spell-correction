@@ -194,13 +194,11 @@ class SymSpell:
 def spell_corrector(word_list, words_d, native) -> str:
     result_list = []
     for word in word_list:
-        
         #start of special block
         if word in native:
             result_list.append(word)
             continue
         #end of special block
-
         if word not in words_d:
             suggestion = ss.best_word(word, silent=True)
             if suggestion is not None:
@@ -210,7 +208,6 @@ def spell_corrector(word_list, words_d, native) -> str:
                 result_list.append(word)
         else:
             result_list.append(word)
-
     return " ".join(result_list)
 
 if __name__ == '__main__':
@@ -237,12 +234,17 @@ if __name__ == '__main__':
     with open('./input/479k-english-words/indian_cities.txt') as f:
         words = f.readlines()
     native += [word.strip() for word in words]
-    with open('./input/479k-english-words/indian_states.txt') as f:
-        words = f.readlines()
-    native += [word.strip() for word in words]
+#    with open('./input/479k-english-words/indian_states.txt') as f:
+#        words = f.readlines()
+#    native += [word.strip() for word in words]
     with open('./input/479k-english-words/english_names.txt') as f:
         words = f.readlines()
     native += [word.strip() for word in words]
+    native = ' '.join(native)
+    #print(native)
+    native = re.sub('\s+', ' ', native)
+    native = native.split(' ')
+    native.sort()
     f.close()
     # Print some examples
     print(eng_words[:5])

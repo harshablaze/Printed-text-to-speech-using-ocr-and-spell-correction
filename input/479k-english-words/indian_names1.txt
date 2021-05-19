@@ -1,8 +1,3 @@
-amit
-raju
-savita
-smt
-soniya
 aabid
 aabida
 aachal
@@ -296,6 +291,7 @@ amiri
 amirul
 amisha
 amit
+"amit,"
 amita
 amjad
 amjat
@@ -4322,6 +4318,7 @@ rajputra
 rajrani
 rajshree
 raju
+"raju,"
 rajuddin
 rajudi
 rajveer
@@ -5171,6 +5168,7 @@ savia
 saviha
 savina
 savita
+"savita,"
 saviti
 savitri
 savreen
@@ -5646,6 +5644,7 @@ smariti
 smarti
 smriti
 smt
+"smt,"
 smts
 sna
 snah
@@ -5702,6 +5701,7 @@ soni
 sonia
 sonika
 soniya
+"soniya,"
 sonu
 sony
 sonyi
