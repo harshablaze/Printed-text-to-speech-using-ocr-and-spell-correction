@@ -1,12 +1,15 @@
+import time
 import os
 import cv2
+
+start = time.time()
 #run image acquisition
 print("starting...")
-
 print("acquiring image...")
 os.system('python acquireimage.py')
 print("image acquired")
 
+os.system('python textdetect.py')
 #print("Enter input type:\n1.ID CARD \n2.SIGN BOARD \n 3.")
 
 print("preprocessing image...")
@@ -35,13 +38,16 @@ if len(words) == 0 :
     print('no text detected \n exiting..')
 else :
     os.system('python names.py')
-    os.system('python nameidentifier.py')
+    
+    #os.system('python nameidentifier.py')
 
     print("running spell correction...")
     #run spell correction
     #os.system('python spell.py')
-    os.system('python sym1.py')
+    #os.system('python sym1.py')
 
     print("running text to speech convertor...")
     #run tts
-    os.system('python tts4.py')
+    #os.system('python tts4.py')
+end = time.time()
+print(f'Runtime: {end - start} seconds')

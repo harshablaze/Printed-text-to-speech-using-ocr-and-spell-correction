@@ -18,7 +18,7 @@ list = os.listdir('./prepro/') # dir is your directory path
 number_of_files = len(list)
 print('No of images detected: '+ str(number_of_files))
 
-im2 = Image.open('images/sample_0.jpg')
+im2 = Image.open('images/sample_01.jpg')
 text_im3 = pytesseract.image_to_string(im2, lang='eng', config=tessdata_dir_config)
 file_number = 0
 for i in range(0,number_of_files):
@@ -39,7 +39,19 @@ text = text.replace('\n',' ')
 text_im3 =text_im3.replace('\n',' ')
 if (len(text_im3)) > len(text):
     text = text_im3
-print(text_im3)
+#print(text_im3)
+white_img = cv2.imread('./images/sample_00.jpg')
+text_im3 = pytesseract.image_to_string(im1, lang='eng', config=tessdata_dir_config)
+temp1 = text
+temp1 = temp1.replace('\n',' ')
+temp1 = re.sub('[^0-9a-zA-Z]','',temp1)
+temp2 = text_im3
+temp2 = temp2.replace('\n',' ')
+temp2 = re.sub('[^0-9a-zA-Z]', '', temp2)
+temp1 = re.sub('\s+',' ',temp1)
+temp2 = re.sub('\s+',' ',temp2)
+if len(temp2) > len(temp1):
+    text = temp2
 print(text)
 #remove unwanted chars recognised by ocr
 text = text.replace('\n',' ')

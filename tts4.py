@@ -28,7 +28,7 @@ text = text.replace('\n',' ')
 
 engine.say(text)
 #engine.say('My current speaking rate is ' + str(rate))
-engine.say("     do you want to hear original text?    enter yes or no")
+engine.say("     do you want to hear original text?")
 engine.runAndWait()
 choice = input()
 if choice == 'yes' or choice == 'y' or choice == 'Y':

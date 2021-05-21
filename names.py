@@ -62,7 +62,7 @@ names.extend(re.findall(
     r'([a-z]* locality [a-z]*|[a-z]* city [a-z]*|[a-z]* town [a-z]*|[a-z]* village [a-z]*|[a-z]* district [a-z]*)', text.lower()))
 names.extend(re.findall(r':\s*[a-z]*',raw_text.lower()))
 names.extend(re.findall(r' [a-z]*[A-Z][a-z]*', text))
-names.extend(re.findall('\\b[a-z][a-z.&]{2,7}\\b', text.lower()))
+names.extend(re.findall('\\b(?:[a-zA-Z]\\.){2,}', text.lower()))
 #names.extend(re.findall(r'[a-z].[a-z&]{2,7}', text.lower()))
 print(names)
 #convert list of names to a sentence

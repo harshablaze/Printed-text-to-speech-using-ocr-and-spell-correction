@@ -64,7 +64,7 @@ thresh2 = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
 ret,thresh3 = cv2.threshold(img,127,255,cv2.THRESH_BINARY_INV)
 
 ret,thresh4 = cv2.threshold(thresh1,127,255,cv2.THRESH_BINARY)
-cv2.imwrite('./images/sample_0.jpg', thresh2)
+cv2.imwrite('./images/sample_01.jpg', thresh2)
 
 # De-allocate any associated memory usage
 if cv2.waitKey(0) & 0xff == 27:

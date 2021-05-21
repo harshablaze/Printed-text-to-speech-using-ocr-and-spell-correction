@@ -8,3 +8,7 @@ for file in onlyfiles:
     if format1 == 'png':
         image = cv2.imread('./images/'+ name +'.png')
         cv2.imwrite('./images/'+ name +'.jpg', image, [int(cv2.IMWRITE_JPEG_QUALITY), 100])
+    if format1 == 'jpeg':
+        image = cv2.imread('./images/' + name + '.jpeg')
+        cv2.imwrite('./images/' + name + '.jpg', image,
+                    [int(cv2.IMWRITE_JPEG_QUALITY), 100])
