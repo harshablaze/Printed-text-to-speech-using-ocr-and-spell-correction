@@ -4,10 +4,11 @@ import re
 #not needed
 import cv2
 import os
+from os.path import isfile, join
+from os import listdir
 #pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe'
 pytesseract.pytesseract.tesseract_cmd = r'.\Tesseract-OCR\tesseract.exe'
 #use above path when tesseract is moved to current project directory
-
 # Example config: r'--tessdata-dir "C:\Program Files (x86)\Tesseract-OCR\tessdata"'
 # It's important to add double quotes around the dir path.
 #tessdata_dir_config = r'--tessdata-dir "C:\\Program Files (x86)\\Tesseract-OCR\\tessdata"'
@@ -17,8 +18,7 @@ text=''
 list = os.listdir('./prepro/') # dir is your directory path
 number_of_files = len(list)
 print('No of images detected: '+ str(number_of_files))
-
-im2 = Image.open('images/sample_01.jpg')
+im2 = Image.open('./output/sample00.jpg')
 text_im3 = pytesseract.image_to_string(im2, lang='eng', config=tessdata_dir_config)
 file_number = 0
 for i in range(0,number_of_files):
@@ -31,33 +31,31 @@ for i in range(0,number_of_files):
         text += text_im1
     else:
         text += text_im2
-
     #text = pytesseract.image_to_string(im, lang = 'eng')
-    text += '.'
+    #text += '.'
     file_number += 1
 text = text.replace('\n',' ')
 text_im3 =text_im3.replace('\n',' ')
 if (len(text_im3)) > len(text):
     text = text_im3
-#print(text_im3)
-white_img = cv2.imread('./images/sample_00.jpg')
-text_im3 = pytesseract.image_to_string(im1, lang='eng', config=tessdata_dir_config)
-temp1 = text
-temp1 = temp1.replace('\n',' ')
-temp1 = re.sub('[^0-9a-zA-Z]','',temp1)
-temp2 = text_im3
-temp2 = temp2.replace('\n',' ')
-temp2 = re.sub('[^0-9a-zA-Z]', '', temp2)
-temp1 = re.sub('\s+',' ',temp1)
-temp2 = re.sub('\s+',' ',temp2)
-if len(temp2) > len(temp1):
-    text = temp2
-print(text)
-#remove unwanted chars recognised by ocr
+#print(text)
 text = text.replace('\n',' ')
-#text = text.replace(':','   ')
-#text = text.replace(',',' ')
+#text = re.sub('[^0-9a-zA-Z.,-]',' ',text)
+text = re.sub('\s+',' ',text)
 
+#comparision of preprosed original image ,rois,tests completed
+os.remove('./output/sample00.jpg')
+mypath = './output/'
+onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+#print(onlyfiles)
+for file in onlyfiles:
+    img = cv2.imread('./output/{}'.format(file))
+    temp_text = pytesseract.image_to_string(im, lang='eng', config=tessdata_dir_config)
+    temp_text = temp_text.replace('\n',' ')
+    temp_text = re.sub('\s+',' ',temp_text)
+    if len(text) <= len(temp_text):
+        text = temp_text
+#remove unwanted chars recognised by ocr
 text = text.replace('_',' ')
 text = text.replace("'",'')
 text = text.replace('‘','')
@@ -65,7 +63,6 @@ text = text.replace('‘','')
 text=re.sub('\s+',' ',text)
 text = text.replace('/','   ')
 #to remove chars not in [A-Z] [a-z] [0-9] and , . @ $ % & ! # () = + ? / <> {}
-
 print(text)
 #print text data to txt Files
 outFileName="text.txt"

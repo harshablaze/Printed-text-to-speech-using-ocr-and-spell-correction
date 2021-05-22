@@ -11,7 +11,7 @@ def get_contour_precedence(contour, cols):
     return ((origin[1] // tolerance_factor) * tolerance_factor) * cols + origin[0]
 
 # Load image, grayscale, Gaussian blur, adaptive threshold
-image = cv2.imread('./images/sample_0.jpg')
+image = cv2.imread('./output/sample00.jpg')
 
 #compress the image if image size is >than 1000x1000
 height, width, color = image.shape #unpacking tuple (height, width, colour) returned by image.shape
