@@ -27,14 +27,7 @@ for i in range(0,number_of_files):
 	'''
 	image1 = cv2.imread('./roi/ROI_{}.jpg'.format(ROI_number))
 	#image1 = cv2.imread('roi/ROI_0.jpg')
-	#initial sample4
-	# cv2.cvtColor is applied over the
-	# image input with applied parameters
-	# to convert the image in grayscale
 	img = cv2.cvtColor(image1, cv2.COLOR_BGR2GRAY)
-
-	# applying different thresholding
-	# techniques on the input image
 	thresh1 = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_MEAN_C,
 											cv2.THRESH_BINARY, 199, 5)
 
@@ -66,15 +59,15 @@ for i in range(0,4):
 	
 	thresh5 = cv2.Canny(thresh3,100,200)
 	kernel = np.ones((2, 2), np.uint8)
-	img_erosion = cv2.erode(thresh3, kernel, iterations=1)
-	img_dilation = cv2.dilate(thresh3, kernel, iterations=1)
+	img_erosion = cv2.erode(img, kernel, iterations=1)
+	img_dilation = cv2.dilate(img, kernel, iterations=1)
 	cv2.imwrite('./output/sample1{}.jpg'.format(i), thresh4)
 	cv2.imwrite('./output/sample2{}.jpg'.format(i),thresh3)
 	cv2.imwrite('./output/sample3{}.jpg'.format(i),thresh2)
 	cv2.imwrite('./output/sample4{}.jpg'.format(i), thresh1)
 	cv2.imwrite('./output/sample5{}.jpg'.format(i), thresh5)
-	cv2.imwrite('./output/sample6{}.jpg'.format(i), img_erosion)
-	cv2.imwrite('./output/sample7{}.jpg'.format(i), img_dilation)
+	cv2.imwrite('./output/sample6{}.jpg'.format(i), thresh1)
+	cv2.imwrite('./output/sample7{}.jpg'.format(i), thresh1)
 	cv2.imwrite('./output/sample8{}.jpg'.format(i), img)
 # De-allocate any associated memory usage
 if cv2.waitKey(0) & 0xff == 27:
