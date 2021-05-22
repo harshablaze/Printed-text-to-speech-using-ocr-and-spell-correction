@@ -1,5 +1,12 @@
 import cv2
 import os
+from os.path import isfile, join
+from os import listdir
+
+dir = './crop/'
+for f in os.listdir(dir):
+    os.remove(os.path.join(dir, f))
+
 cam = cv2.VideoCapture(0,cv2.CAP_DSHOW)
 dir = './output/'
 for f in os.listdir(dir):
@@ -18,7 +25,7 @@ while True:
         # ESC pressed
         print("Escape hit, closing...")
         #save default image when image is not acquired
-        image = cv2.imread('./images/sample12.jpg')
+        image = cv2.imread('./images/sample14.jpg')
         #img_name = "./images/sample_0.jpg"
         cv2.imwrite('./output/sample00.jpg', image)
         break
