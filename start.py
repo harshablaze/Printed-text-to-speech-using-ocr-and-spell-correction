@@ -44,10 +44,10 @@ else :
     print("running spell correction...")
     #run spell correction
     #os.system('python spell.py')
-    #os.system('python sym1.py')
+    os.system('python sym1.py')
 
     print("running text to speech convertor...")
     #run tts
-    #os.system('python tts4.py')
+    os.system('python tts4.py')
 end = time.time()
 print(f'Runtime: {end - start} seconds')

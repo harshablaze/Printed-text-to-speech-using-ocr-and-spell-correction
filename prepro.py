@@ -47,6 +47,7 @@ for i in range(0,number_of_files):
 	ROI_number += 1
 for i in range(0,1):
 	img = cv2.imread('./output/sample0{}.jpg'.format(i))
+	img1 = img
 	img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 	ret, thresh3 = cv2.threshold(img, 127, 255, cv2.THRESH_BINARY_INV)
 	#ret, thresh4 = cv2.threshold(img, 127, 255, cv2.THRESH_BINARY)
@@ -56,22 +57,24 @@ for i in range(0,1):
 	#thresh2 = cv2.adaptiveThreshold(thresh3, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
 	#											cv2.THRESH_BINARY, 199, 5)
 	
-	
+	#ret, thresh4 = cv2.threshold(img, 100, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
 	#thresh5 = cv2.Canny(thresh3,100,200)
 	ret, thresh6 = cv2.threshold(img, 120, 255, cv2.THRESH_BINARY +
                               cv2.THRESH_OTSU)
 	#kernel = np.ones((2, 2), np.uint8)
-	#img_erosion = cv2.erode(img, kernel, iterations=1)
-	#img_dilation = cv2.dilate(img, kernel, iterations=1)
-	#cv2.imwrite('./output/sample1{}.jpg'.format(i), thresh4)
+	#img_erosion = cv2.erode(thresh6, kernel, iterations=2)
+	#img_dilation = cv2.dilate(img_erosion, kernel, iterations=5)
+	cv2.imwrite('./output/sample1{}.jpg'.format(i), thresh4)
 	cv2.imwrite('./output/sample2{}.jpg'.format(i),thresh3)
 	#cv2.imwrite('./output/sample3{}.jpg'.format(i),thresh2)
 	#cv2.imwrite('./output/sample4{}.jpg'.format(i), thresh1)
 	#cv2.imwrite('./output/sample5{}.jpg'.format(i), thresh5)
 	#cv2.imwrite('./output/sample6{}.jpg'.format(i), thresh1)
-	cv2.imwrite('./output/sample7{}.jpg'.format(i), thresh1)
-	cv2.imwrite('./output/sample8{}.jpg'.format(i), img)
-	cv2.imwrite('./output/sample9{}.jpg'.format(i), thresh6)
+	cv2.imwrite('./output/sample6{}.jpg'.format(i), thresh1)
+	cv2.imwrite('./output/sample7{}.jpg'.format(i), img)
+	cv2.imwrite('./output/sample5{}.jpg'.format(i), thresh6)
+	#cv2.imwrite('./output/sample8{}.jpg'.format(i), img_erosion)
+	#cv2.imwrite('./output/sample9{}.jpg'.format(i), img_dilation)
 # De-allocate any associated memory usage
 if cv2.waitKey(0) & 0xff == 27:
 	cv2.destroyAllWindows()

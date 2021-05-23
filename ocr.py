@@ -1,6 +1,8 @@
 from PIL import Image
 import pytesseract
 import re
+import pandas as pd
+from io import StringIO
 #not needed
 import cv2
 import os
@@ -53,11 +55,30 @@ onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 #print(onlyfiles)
 for file in onlyfiles:
     img = cv2.imread('./output/{}'.format(file))
-    temp_text = pytesseract.image_to_string(im, lang='eng', config=tessdata_dir_config)
+    temp_text = pytesseract.image_to_string(img, lang='eng', config=tessdata_dir_config)
+    '''
+    textdata = pytesseract.image_to_data(img, lang='eng',config=tessdata_dir_config)
+    mon = pd.read_csv(StringIO(textdata),sep=r'\s',lineterminator=r'\n',engine='python')
+    #list2 = mon['text']
+    df = pd.DataFrame(mon, columns=['text'])
+    list2 = df.values.tolist()
+    list2 = [item for elem in list2 for item in elem]
+    cnt = 0
+    textdata = ''
+    for i in list2:
+        if i == None:
+            list2[cnt] = ' '
+        cnt += 1
+    textdata = ' '.join(str(list2))
+    textdata = re.sub('\s+',' ',textdata)
+    '''
+    #print(textdata)
     temp_text = temp_text.replace('\n',' ')
     temp_text = re.sub('\s+',' ',temp_text)
     if len(text) <= len(temp_text):
         text = temp_text
+    #if len(text) <= len(textdata):
+    #    text = textdata
 #remove unwanted chars recognised by ocr
 text = text.replace('_',' ')
 text = text.replace("'",'')

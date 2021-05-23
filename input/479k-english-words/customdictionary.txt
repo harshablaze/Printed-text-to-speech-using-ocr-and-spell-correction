@@ -103,3 +103,6 @@ cel
 gn
 mappiness
 saciness
+aut
+va
+mtte
