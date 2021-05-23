@@ -166,6 +166,12 @@ for i in indices:
     #                                cv2.THRESH_BINARY, 199, 5)
     #ret, word_crop = cv2.threshold(word_crop, 127, 255, cv2.THRESH_BINARY)
     cv2.imwrite('./crop/crop_{}.jpg'.format(cnt), word_crop)
+    #preprocessing each crop directly
+    word_crop2 = word_crop
+    img = cv2.cvtColor(word_crop2, cv2.COLOR_BGR2GRAY)
+    ret, thresh = cv2.threshold(img, 120, 255, cv2.THRESH_BINARY +
+                                 cv2.THRESH_OTSU)
+    cv2.imwrite('./crop/procrop{}.jpg'.format(cnt),thresh)
     #end
     for p, q in zip(x, y):
         if x_max < int(float(p)):
@@ -194,19 +200,34 @@ width, height, color = white_frame.shape
 cv2.rectangle(white_frame, (0, 0), (height, width), (255, 255, 255), -1)
 cv2.rectangle(frame, (0, 0), (width_, height_), (144, 153, 146), -1)
 cv2.imwrite('./crop/crop.jpg', frame)
+cv2.rectangle(frame, (0, 0), (width_, height_), (0, 0, 0), -1)
+cv2.imwrite('./crop/procrop.jpg',frame)
+cv2.rectangle(frame, (0, 0), (width_, height_), (255, 255, 255), -1)
+cv2.imwrite('./crop/procropz.jpg', frame)
 crop0 = cv2.imread('./crop/crop.jpg')
+crop1 = cv2.imread('./crop/procrop.jpg')
+crop2 = cv2.imread('./crop/procropz.jpg')
 for i in range(0, cnt):
     xmin = xminval[i]
     ymin = yminval[i]
     crop_0 = cv2.imread('./crop/crop_{}.jpg'.format(i))
+    crop_1 = cv2.imread('./crop/procrop{}.jpg'.format(i))
     height, width, clr = crop_0.shape
     ymax = ymin+height
     xmax = xmin+width
     crop0[ymin:ymax, xmin:xmax] = crop_0
+    crop1[ymin:ymax, xmin:xmax] = crop_1
+    crop2[ymin:ymax, xmin:xmax] = crop_1
 
 cv2.imwrite('./output/sample01.jpg', crop0)
+cv2.imwrite('./output/sample04.jpg', crop1)
+cv2.imwrite('./output/sample07.jpg', crop2)
 crop0 = crop0[y_min:y_max,x_min:x_max]
+crop1 = crop1[y_min:y_max, x_min:x_max]
+crop2 = crop2[y_min:y_max, x_min:x_max]
 cv2.imwrite('./output/sample02.jpg',crop0)
+cv2.imwrite('./output/sample05.jpg', crop1)
+cv2.imwrite('./output/sample08.jpg', crop2)
 #cv2.waitKey()
 
 def rotate_image(image, angle):
@@ -215,6 +236,8 @@ def rotate_image(image, angle):
   result = cv2.warpAffine(image, rot_mat, image.shape[1::-1], flags=cv2.INTER_LINEAR)
   return result
 framez = cv2.imread('./output/sample02.jpg')
+framey = cv2.imread('./output/sample05.jpg')
+framex = cv2.imread('./output/sample08.jpg')
 angles_degree = []
 for z in angles:
     p1 = z[0]
@@ -228,8 +251,13 @@ for z in angles:
     angles_degree.append(angle)
 median_angle = np.median(angles_degree)
 img_rotated = rotate_image(framez, median_angle)
+img_rotated1 = rotate_image(framey, median_angle)
+img_rotated2 = rotate_image(framex, median_angle)
 #cv2.imshow('angles',framez)
 cv2.imshow('rotated',img_rotated)
+cv2.imshow('rotated1', img_rotated1)
 cv2.imwrite('./output/sample03.jpg',img_rotated)
+cv2.imwrite('./output/sample06.jpg', img_rotated1)
+cv2.imwrite('./output/sample09.jpg', img_rotated2)
 cv2.waitKey()
 #print(angles)

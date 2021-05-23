@@ -25,7 +25,11 @@ while True:
         # ESC pressed
         print("Escape hit, closing...")
         #save default image when image is not acquired
-        image = cv2.imread('./images/sample14.jpg')
+        cam.release()
+        cv2.destroyAllWindows()
+        print('enter image number:')
+        i = input()
+        image = cv2.imread('./images/sample{}.jpg'.format(i))
         #img_name = "./images/sample_0.jpg"
         cv2.imwrite('./output/sample00.jpg', image)
         break
@@ -36,6 +40,5 @@ while True:
         print("image saved successfully")
         break
 cam.release()
-
 cv2.destroyAllWindows()
  

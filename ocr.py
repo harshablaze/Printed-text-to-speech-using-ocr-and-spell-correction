@@ -6,6 +6,9 @@ import cv2
 import os
 from os.path import isfile, join
 from os import listdir
+#import sys
+#import codecs
+
 #pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe'
 pytesseract.pytesseract.tesseract_cmd = r'.\Tesseract-OCR\tesseract.exe'
 #use above path when tesseract is moved to current project directory
@@ -64,8 +67,12 @@ text=re.sub('\s+',' ',text)
 text = text.replace('/','   ')
 #to remove chars not in [A-Z] [a-z] [0-9] and , . @ $ % & ! # () = + ? / <> {}
 print(text)
-#print text data to txt Files
 outFileName="text.txt"
 outFile=open('text.txt', "w")
-outFile.write(text)
+try:
+    outFile.write(text)
+except:
+    text = text.encode('ascii', 'namereplace')
+    text = text.decode()
+    outFile.write(text)
 outFile.close()
