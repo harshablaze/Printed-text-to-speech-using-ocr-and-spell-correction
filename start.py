@@ -8,7 +8,7 @@ print("starting...")
 print("acquiring image...")
 os.system('python acquireimage.py')
 print("image acquired")
-
+start1 = time.time()
 os.system('python textdetect.py')
 #print("Enter input type:\n1.ID CARD \n2.SIGN BOARD \n 3.")
 
@@ -26,7 +26,8 @@ if number_of_files == 0:
 
 #run preprocessor
 os.system('python prepro.py')
-
+end1 = time.time()
+start2 = time.time()
 print("running ocr...")
 #run ocr
 os.system('python ocr.py')
@@ -34,6 +35,8 @@ words=''
 with open('text.txt', 'r') as file:
     words = file.read().replace('\n', '')
 words=words.replace(' ','')
+end2 = time.time()
+start3 = time.time()
 if len(words) == 0 :
     print('no text detected \n exiting..')
 else :
@@ -45,9 +48,15 @@ else :
     #run spell correction
     #os.system('python spell.py')
     os.system('python sym1.py')
-
+    end3 = time.time()
     print("running text to speech convertor...")
     #run tts
     os.system('python tts4.py')
+
 end = time.time()
-print(f'Runtime: {end - start} seconds')
+print(f'preprocessing: {int(end1 - start1)} seconds')
+print(f'character recognition: {int(end2 - start2)} seconds')
+if len(words) != 0:
+    print(f'postprocessing: {int(end3 - start3)} seconds')
+print(f'Runtime: {int(end - start)} seconds')
+

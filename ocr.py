@@ -1,8 +1,8 @@
 from PIL import Image
 import pytesseract
 import re
-import pandas as pd
-from io import StringIO
+#import pandas as pd
+#from io import StringIO
 #not needed
 import cv2
 import os
@@ -55,7 +55,7 @@ onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 #print(onlyfiles)
 for file in onlyfiles:
     img = cv2.imread('./output/{}'.format(file))
-    temp_text = pytesseract.image_to_string(img, lang='eng', config=tessdata_dir_config)
+    text2 = pytesseract.image_to_string(img, lang='eng', config=tessdata_dir_config)
     '''
     textdata = pytesseract.image_to_data(img, lang='eng',config=tessdata_dir_config)
     mon = pd.read_csv(StringIO(textdata),sep=r'\s',lineterminator=r'\n',engine='python')
@@ -73,16 +73,18 @@ for file in onlyfiles:
     textdata = re.sub('\s+',' ',textdata)
     '''
     #print(textdata)
+    temp_text = text2
     temp_text = temp_text.replace('\n',' ')
     temp_text = re.sub('\s+',' ',temp_text)
     if len(text) <= len(temp_text):
-        text = temp_text
+        text = text2
     #if len(text) <= len(textdata):
     #    text = textdata
 #remove unwanted chars recognised by ocr
 text = text.replace('_',' ')
 text = text.replace("'",'')
 text = text.replace('‘','')
+text = text.replace('\n',' ')
 #to remove extra spaces
 text=re.sub('\s+',' ',text)
 text = text.replace('/','   ')

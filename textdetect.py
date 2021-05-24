@@ -61,7 +61,7 @@ def decode(scores, geometry, scoreThresh):
 
 
 # This is the model we get after extraction
-net = cv2.dnn.readNet("frozen_east_text_detection.pb")
+net = cv2.dnn.readNet("pretrained_model.pb")
 frame = cv2.imread('./output/sample00.jpg')
 inpWidth = inpHeight = 320  # A default dimension
 # Preparing a blob to pass the image through the neural network
