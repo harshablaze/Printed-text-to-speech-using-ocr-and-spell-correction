@@ -18,6 +18,13 @@
 
 **4. to start the project**
 * `src\4-4-project>python start.py`
+<br>after start is running acquireimage will run automatically<br>
+press spacebar to capture image else Esc to enter image number manually<br>
+for manual input first save image in images folder with sample45.jpg name (any number instead of 45 is ok)<br>
+now if you pressed Escape button while acquiring image it asks for image number so enter 45 or the number you saved<br>
+you can modify code to take manual input images from your custom folder<br>
+<br>
+**while execution some images may popup to show internal process press ctrl+W or Esc to proceed**
 ***
 ## **Troubleshooting errors**
 **1. if you encountered errors in installing requirements.txt**
