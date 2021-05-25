@@ -25,6 +25,7 @@ now if you pressed Escape button while acquiring image it asks for image number 
 you can modify code to take manual input images from your custom folder<br>
 <br>
 **while execution some images may popup to show internal process press ctrl+W or Esc to proceed**
+
 ***
 ## **Troubleshooting errors**
 **1. if you encountered errors in installing requirements.txt**
