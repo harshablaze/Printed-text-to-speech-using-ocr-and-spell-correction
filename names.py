@@ -63,6 +63,11 @@ names.extend(re.findall(
 names.extend(re.findall(r':\s*[a-z]*',raw_text.lower()))
 names.extend(re.findall(r' [a-z]*[A-Z][a-z]*', text))
 names.extend(re.findall('\\b(?:[a-zA-Z]\\.){2,}', text.lower()))
+print(raw_text)
+# for email detection
+names.extend(re.findall(r'[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$', raw_text))
+# for website detection
+names.extend(re.findall(r'(?:[a-zA-Z0-9-]+\.)+[A-Za-z]{2,6}$', raw_text))
 #names.extend(re.findall(r'[a-z].[a-z&]{2,7}', text.lower()))
 print(names)
 #convert list of names to a sentence
@@ -72,7 +77,7 @@ for name in names:
 print(detected_names)
 
 detected_names = detected_names.lower()
-detected_names = re.sub('[^0-9a-zA-Z.]', ' ', detected_names)
+detected_names = re.sub('[^0-9a-zA-Z.@]', ' ', detected_names)
 detected_names = re.sub('\s+', ' ', detected_names)
 print(detected_names)
 #convert sentence to tokens
