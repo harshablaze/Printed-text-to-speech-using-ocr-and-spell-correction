@@ -94,6 +94,7 @@ for name in list1:
     if name in native:
         list1.remove(name)
 #print(list1)
+print("names detected:")
 inFile = open('./input/479k-english-words/customdictionary.txt','a+')
 for word in list1:
     if word not in native:

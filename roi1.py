@@ -57,7 +57,7 @@ for c in cnts:
         cv2.imwrite('roi/ROI_{}.jpg'.format(ROI_number), ROI)
         ROI_number += 1
 
-cv2.imshow('thresh', thresh)
-cv2.imshow('dilate', dilate)
+#cv2.imshow('thresh', thresh)
+#cv2.imshow('dilate', dilate)
 #cv2.imshow('image', image)
 cv2.waitKey()

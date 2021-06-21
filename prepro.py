@@ -14,7 +14,7 @@ for f in os.listdir(dir):
 #count rois in roi folder
 list = os.listdir('./roi/') # dir is your directory path
 number_of_files = len(list)
-print('No of ROIs detected: '+ str(number_of_files))
+#print('No of ROIs detected: '+ str(number_of_files))
 
 ROI_number = 0
 for i in range(0,number_of_files):

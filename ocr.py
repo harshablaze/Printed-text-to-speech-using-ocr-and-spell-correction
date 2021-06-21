@@ -22,7 +22,7 @@ tessdata_dir_config = r'--tessdata-dir ".\Tesseract-OCR\tessdata"'
 text=''
 list = os.listdir('./prepro/') # dir is your directory path
 number_of_files = len(list)
-print('No of images detected: '+ str(number_of_files))
+#print('No of images detected: '+ str(number_of_files))
 im2 = Image.open('./output/sample00.jpg')
 text_im3 = pytesseract.image_to_string(im2, lang='eng', config=tessdata_dir_config)
 file_number = 0
