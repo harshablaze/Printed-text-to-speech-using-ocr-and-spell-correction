@@ -49,6 +49,10 @@ native.sort()
 #print(native)
 #detecting names
 names = []
+names1 = []
+text1 = text.replace('.',' ')
+names1 = re.findall(r'[A-Z][a-z]*[0-9]*',text1)
+#print(names1)
 names = re.findall(r"name is [a-z]*",text.lower())
 names.extend(re.findall(r'hi [a-z]*',text.lower()))
 names.extend(re.findall(r'from [a-z]*',text.lower()))
@@ -71,6 +75,7 @@ names.extend(re.findall(r'(?:[a-zA-Z0-9-]+\.)+[A-Za-z]{2,6}$', raw_text))
 #names.extend(re.findall(r'[a-z].[a-z&]{2,7}', text.lower()))
 #print(names)
 #convert list of names to a sentence
+names.extend(names1)
 detected_names = ''
 for name in names:
     detected_names += name + ' '
