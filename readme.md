@@ -56,3 +56,5 @@ in root folder
 and then 
 * `pip install -r requirements`
 
+** Drawbacks **
+poor low light performance and too much noise is mistaken as words. 

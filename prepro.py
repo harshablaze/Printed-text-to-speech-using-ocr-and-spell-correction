@@ -1,5 +1,5 @@
 import cv2
-import numpy as np
+#import numpy as np
 import os
 #from PIL import Image, ImageEnhance #for contrast only remove if not used
 # path to input image is specified and
