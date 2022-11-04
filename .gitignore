@@ -1,6 +1,12 @@
-#ignore
-env
-output
-crop
-prepro
-roi
+# ignore
+env/
+
+output/
+
+crop/
+
+prepro/
+
+roi/
+
+.jpg

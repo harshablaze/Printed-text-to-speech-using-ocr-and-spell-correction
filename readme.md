@@ -43,14 +43,16 @@ output: `('64bit', 'WindowsPE')`
 
 **any issues connect with me through [linkedin](https://www.linkedin.com/in/harshablaze)** 
 
-**update**
+**update release/1.0**
 
 removing env 
 
+**step 1:**
 need to install python before hand 
 and run >>
 * `python3 -m venv ./env`
-in current folder
+<< to setup the environment
+in root folder
 and then 
 * `pip install -r requirements`
 
