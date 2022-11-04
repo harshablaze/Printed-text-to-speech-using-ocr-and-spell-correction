@@ -1,0 +1,19 @@
+# ignore
+env/
+
+output/
+
+crop/
+
+prepro/
+
+roi/
+
+.jpg
+
+/corrected_text.txt
+
+/test.mp3
+
+/text.txt
+

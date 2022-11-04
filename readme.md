@@ -41,5 +41,20 @@ output: `('64bit', 'WindowsPE')`
 **2. if errors encountered after executing [start.py](https://github.com/harshablaze/4-4-project/blob/main/start.py)**
  * check if it is package error or input files error or path errors and rectify manually
 
-**any issues connect with me through [linkedin](https://www.linkedin.com/in/sri-harsha-mullapudi-014623172/)** 
+**any issues connect with me through [linkedin](https://www.linkedin.com/in/harshablaze)** 
 
+**update release/1.0**
+
+removing env 
+
+**step 1:**
+need to install python before hand 
+and run >>
+* `python3 -m venv ./env`
+<< to setup the environment
+in root folder
+and then 
+* `pip install -r requirements`
+
+** Drawbacks **
+poor low light performance and too much noise is mistaken as words. 
