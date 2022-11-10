@@ -43,8 +43,7 @@ output: `('64bit', 'WindowsPE')`
 
 **any issues connect with me through [linkedin](https://www.linkedin.com/in/harshablaze)** 
 
-<br>
-
+***
 ## **update release/1.0**
 
 removing env 
@@ -59,4 +58,5 @@ and then
 * `pip install -r requirements`
 
 **Drawbacks**
+<br>
 poor low light performance and too much noise is mistaken as words. 
