@@ -43,7 +43,7 @@ output: `('64bit', 'WindowsPE')`
 
 **any issues connect with me through [linkedin](https://www.linkedin.com/in/harshablaze)** 
 
-**update release/1.0**
+## **update release/1.0**
 
 removing env 
 
