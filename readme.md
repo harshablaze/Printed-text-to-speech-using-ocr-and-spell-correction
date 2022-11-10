@@ -43,7 +43,8 @@ output: `('64bit', 'WindowsPE')`
 
 **any issues connect with me through [linkedin](https://www.linkedin.com/in/harshablaze)** 
 
-**update release/1.0**
+***
+## **update release/1.0**
 
 removing env 
 
@@ -56,5 +57,6 @@ in root folder
 and then 
 * `pip install -r requirements`
 
-** Drawbacks **
+**Drawbacks**
+<br>
 poor low light performance and too much noise is mistaken as words. 
