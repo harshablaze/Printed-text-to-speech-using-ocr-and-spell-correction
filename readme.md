@@ -41,5 +41,5 @@ output: `('64bit', 'WindowsPE')`
 **2. if errors encountered after executing [start.py](https://github.com/harshablaze/4-4-project/blob/main/start.py)**
  * check if it is package error or input files error or path errors and rectify manually
 
-**any issues connect with me through [linkedin](https://www.linkedin.com/in/sri-harsha-mullapudi-014623172/)** 
+**any issues connect with me through [linkedin](https://www.linkedin.com/in/harshablaze/)** 
 
